@@ -19,5 +19,5 @@ def get_chats():
         }
         return jsonify(message_info), 201
     else:
-        error_message = "Question must be in the request."
+        error_message = "A question must be in the request."
         return jsonify({"error": error_message}), 400
