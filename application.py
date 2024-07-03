@@ -1,5 +1,5 @@
 from configs import application
-from database.db_connection import db
+# from database.db_connection import db
 from routes import ask_route
 
 

@@ -5,13 +5,9 @@ from llm.gpt import AnswerBot
 
 @application.route("/ask", methods=["POST"])
 def get_chats():
-    data = {}
-    if request.data:
-        data = request.get_json()
-    
-    if "question" in data:
-        question = data["question"]
-        answer_bot = AnswerBot(model="gpt-4o")
+    if request.data and "question" in request.get_json():
+        question = request.get_json()["question"]
+        answer_bot = AnswerBot(llm_model="gpt-4o")
         gpt_answer = answer_bot.get_answer(question=question)
         message_info = {
             "question": question,
