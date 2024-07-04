@@ -13,8 +13,8 @@ class QuestionAndAnswer(db.Model):
       autoincrement=True
    )
    question: Mapped[str] = mapped_column(
-      String(length=4096, field_name="question", required=True)
+      String(length=4096)
    )
    answer: Mapped[str] = mapped_column(
-      String(length=4096, field_name="answer", required=True)
+      String(length=4096)
    )
