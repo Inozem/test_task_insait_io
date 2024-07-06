@@ -1,9 +1,9 @@
 # Flask OpenAI Question Answering Service
 
 ## Introduction
-This project was created as a home assignment for the Senior Backend Developer position at INSAIT. The task involves setting up a Flask server that exposes an endpoint to ask a question, integrates with the OpenAI API to get answers, and stores the questions and answers in a PostgreSQL database. The server and the database are dockerized and run with Docker Compose. Tests are implemented using pytest.
+This project was created as a test assignment for the Senior Backend Developer position at INSAIT. The task involves setting up a Flask server that exposes an endpoint to ask a question, integrates with the OpenAI API to get answers, and stores the questions and answers in a PostgreSQL database. The server and the database are dockerized and run with Docker Compose. Tests are implemented using pytest.
 
-## Home Assignment Task Overview
+## Test Assignment Task Overview
 Create a simple Flask server that exposes an endpoint to ask a question. The server sends the question to an OpenAI API, receives the answer, and saves both the question and the answer in a PostgreSQL database. The server and the database should be dockerized and run with Docker Compose. Implement one test using pytest.
 
 ### Requirements
