@@ -1,0 +1,2 @@
+FROM postgres:13
+VOLUME ["/var/lib/postgresql/data"]

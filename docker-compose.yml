@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: insait_io_application
+    command: python application.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./application:/application
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/insait_io
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile_db
+    container_name: insait_io_postgres_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: insait_io
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
