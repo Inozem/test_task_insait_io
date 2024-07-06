@@ -50,7 +50,7 @@ Create a simple Flask server that exposes an endpoint to ask a question. The ser
 1. Clone the repository:
     ```sh
     git clone git@github.com:Inozem/test_task_insait_io.git
-    cd test_task_insait_io/application
+    cd test_task_insait_io
     ```
 
 2. Create an `.env` file with the following content in the "application" folder:
@@ -58,12 +58,20 @@ Create a simple Flask server that exposes an endpoint to ask a question. The ser
     OPENAI_API_KEY=your_openai_api_key
     ```
 
-3. Build and run the containers:
+3. Configure the database settings in `application/configs.py`:
+    ```python
+    SERVER_NAME = "db"
+    DB_USERNAME = "user"
+    DB_PASSWORD = "password"
+    DB_NAME = "insait_io"
+    ```
+
+4. Build and run the containers:
     ```sh
     docker-compose up -d --build
     ```
 
-4. Apply the migrations:
+5. Apply the migrations:
     ```sh
     docker-compose run web alembic upgrade head
     ```
