@@ -58,7 +58,7 @@ Create a simple Flask server that exposes an endpoint to ask a question. The ser
     OPENAI_API_KEY=your_openai_api_key
     ```
 
-3. Configure the database settings in `application/configs.py`:
+3. Modify the database settings in `application/configs.py` if needed:
     ```python
     SERVER_NAME = "db"
     DB_USERNAME = "user"
