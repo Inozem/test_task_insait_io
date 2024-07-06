@@ -6,7 +6,7 @@ This project was created as a test assignment for the Senior Backend Developer p
 ## Test Assignment Task Overview
 Create a simple Flask server that exposes an endpoint to ask a question. The server sends the question to an OpenAI API, receives the answer, and saves both the question and the answer in a PostgreSQL database. The server and the database should be dockerized and run with Docker Compose. Implement one test using pytest.
 
-### Requirements
+### Task Requirements
 1. Flask Server: Set up a Flask server with an endpoint to handle questions.
 2. OpenAI API Integration: Integrate the OpenAI API to get answers for the questions.
 3. Database: Use PostgreSQL to store questions and answers.
