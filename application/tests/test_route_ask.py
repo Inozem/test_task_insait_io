@@ -31,4 +31,4 @@ def test_get_chats_no_question(client):
     json_data = response.get_json()
 
     assert response.status_code == 400
-    assert json_data["error"] == "A question must be in the request."
+    assert json_data["error"] == "The 'question' field is required."

@@ -2,13 +2,17 @@ from dataclasses import dataclass
 
 from openai import OpenAI
 
-from configs import OPENAI_API_KEY
+from configs import MESSAGE_MAX_LEN, OPENAI_API_KEY
 
 
 @dataclass
 class AnswerBot:
-    prompt: str = "Your task is to provide an answer to the user's question."
     llm_model: str = "gpt-3.5-turbo"
+    prompt: str = (
+        "Your task is to provide an answer to the user's question. "
+        "Your response should contain no more than "
+        f"{MESSAGE_MAX_LEN} characters."
+    )
 
     def get_answer(self, question):
         messages = [
