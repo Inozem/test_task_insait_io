@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import jsonify, request, Response
 from werkzeug.exceptions import BadRequest
 
 from configs import application, MESSAGE_MAX_LEN, MESSAGE_MIN_LEN
@@ -7,7 +7,7 @@ from database.models.question_and_answer import QuestionAndAnswer
 from llm.gpt import AnswerBot
 
 @application.route("/ask", methods=["POST"])
-def get_chats():
+def get_chats() -> tuple[Response, int]:
     try:
         question = request.get_json()["question"]
         validate_message(question)
@@ -34,7 +34,7 @@ def get_chats():
     except Exception:
         return jsonify({"error": "Server error."}), 500
 
-def validate_message(message):
+def validate_message(message: str) -> str:
     if not isinstance(message, str):
         raise BadRequest("The 'question' field must be a string.")
     elif len(message) < MESSAGE_MIN_LEN:

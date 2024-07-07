@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Dict, List
 
 from openai import OpenAI
 
@@ -14,14 +15,14 @@ class AnswerBot:
         f"{MESSAGE_MAX_LEN} characters."
     )
 
-    def get_answer(self, question):
+    def get_answer(self, question: str) -> str:
         messages = [
             {"role": "system", "content": self.prompt},
             {"role": "user", "content": question},
         ]
         return self.send_request(messages)
    
-    def send_request(self, messages):
+    def send_request(self, messages: List[Dict[str, str]]) -> str:
         client = OpenAI(
             api_key=OPENAI_API_KEY
         )
