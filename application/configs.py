@@ -1,9 +1,19 @@
+import logging
 import os
 
 from dotenv import load_dotenv
 from flask import Flask
 
 application = Flask(__name__)
+
+logging.basicConfig(
+    filename="/application/logs/application.log",
+    level=logging.DEBUG,
+    format=(
+        "%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]"
+    )
+)
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")

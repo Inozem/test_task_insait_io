@@ -11,6 +11,7 @@ services:
       - "5000:5000"
     volumes:
       - ./application:/application
+      - logs:/application/logs
     environment:
       - DATABASE_URL=postgresql://user:password@db:5432/insait_io
     depends_on:
@@ -32,3 +33,4 @@ services:
 
 volumes:
   pgdata:
+  logs:
