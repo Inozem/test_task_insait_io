@@ -76,6 +76,18 @@ Create a simple Flask server that exposes an endpoint to ask a question. The ser
     docker-compose run web alembic upgrade head
     ```
 
+## Logging
+Logs are stored in a separate volume to ensure persistence and ease of access.
+* To view the last 50 lines of the application logs, use the following command:
+    ```sh
+    docker exec -it insait_io_application tail -n 50 /application/logs/application.log
+    ```
+
+* To view application logs in real-time, use the following command:
+    ```sh
+    docker exec -it insait_io_application tail -f /application/logs/application.log
+    ```
+
 ## Usage
 1. Send a POST request to the `/ask` endpoint with a JSON payload containing the question:
     ```sh
@@ -85,7 +97,7 @@ Create a simple Flask server that exposes an endpoint to ask a question. The ser
 2. The server will respond with the question and the answer and save both in the database.
 
 ## Testing
-1. Run the tests using pytest:
+* Run the tests using pytest:
     ```sh
     pytest .\application\tests
     ```
